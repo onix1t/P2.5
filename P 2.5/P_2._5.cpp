@@ -6,15 +6,18 @@
 
 using namespace std;
 
+// Шаблон(Стурктура) для хранения данных о нечетном числе
 struct NumberRecord {
     uint32_t line_number;
     uint8_t odd_number;
 };
 
+// Функция проверки на нечетность
 bool isOdd(int number) {
     return number % 2 != 0;
 }
 
+// Функция нахождения нечетных чисел в файле input
 vector<NumberRecord> processFile(const string& filename) {
     ifstream input_file(filename);
     vector<NumberRecord> records;
@@ -37,6 +40,7 @@ vector<NumberRecord> processFile(const string& filename) {
     return records;
 }
 
+// Функция записи нечетных чисел в файл output
 void writeBinaryFile(const string& filename, const vector<NumberRecord>& records) {
     ofstream output_file(filename, ios::binary);
 
@@ -45,6 +49,7 @@ void writeBinaryFile(const string& filename, const vector<NumberRecord>& records
     }
 }
 
+// Функция чтения файла output
 void readBinaryFile(const string& filename) {
     ifstream input_file(filename, ios::binary);
     NumberRecord record;
